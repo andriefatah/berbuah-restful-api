@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
         for (let doc of docs) {
           const selectedItem = {
             id: doc.id,
-            name: doc.data().nama,
+            nama: doc.data().nama,
             nama_latin: doc.data().nama_latin,
             deskripsi: doc.data().deskripsi,
             gambar: doc.data().gambar,
@@ -70,7 +70,7 @@ app.get("/search", (req, res) => {
           for (let doc of docs) {
             const selectedItem = {
               id: doc.id,
-              name: doc.data().nama,
+              nama: doc.data().nama,
               nama_latin: doc.data().nama_latin,
               deskripsi: doc.data().deskripsi,
               gambar: doc.data().gambar,
