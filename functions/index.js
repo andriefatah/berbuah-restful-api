@@ -8,32 +8,27 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-// Other Library
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const capitalize = require("capitalize-the-first-letter");
 const db = admin.firestore();
 
-// Main App
 const app = express();
 app.use(cors({ origin: true }));
 app.use(bodyParser.json());
 
+// GET SHOW ALL BUAH ARTICLE
 app.get("/", (req, res) => {
-  return res.status(200).send("Hello Berbuah!.....");
-});
-
-// GET ALL ARTICLES
-app.get("/api/articles", (req, res) => {
   (async () => {
     try {
-      const articles = db.collection("articles");
+      let query = db.collection("articles");
       let response = [];
 
-      await articles.get().then((data) => {
-        let docs = data.docs;
+      await query.get().then((querySnapshot) => {
+        let docs = querySnapshot.docs; // the result of the query
 
-        docs.map((doc) => {
+        for (let doc of docs) {
           const selectedItem = {
             id: doc.id,
             name: doc.data().nama,
@@ -43,40 +38,78 @@ app.get("/api/articles", (req, res) => {
             manfaat: doc.data().manfaat,
             nutrisi: doc.data().nutrisi,
           };
-
           response.push(selectedItem);
-        });
-        return response;
+        }
+        return res.status(200).send({
+          code: 200,
+          status: "OK",
+          data: response,
+        }); // each then should return a value
       });
-      return res.status(200).send({
-        code: 200,
-        status: "OK",
-        data: response,
-      });
+      return response;
     } catch (error) {
-      return res.json(500).send({ code: 500, status: "Failed", msg: error });
+      return res.json(500).send({ code: 500, status: "Internal Server Error" });
     }
   })();
 });
 
-// GET ARTICLES BY ID
-app.get("/api/articles/:id", (req, res) => {
+// GET SEARCH BUAH ARTICLE BY NAME
+app.get("/search", (req, res) => {
   (async () => {
     try {
-      const articles = db.collection("articles").doc(req.params.id);
-      let articleDetail = await articles.get();
-      let response = articleDetail.data();
+      const queryBuah = capitalize(req.query.buah);
+      let query = db.collection("articles");
+      let response = [];
+
+      await query
+        .where("nama", "==", queryBuah)
+        .get()
+        .then((querySnapshot) => {
+          let docs = querySnapshot.docs; // the result of the query
+
+          for (let doc of docs) {
+            const selectedItem = {
+              id: doc.id,
+              name: doc.data().nama,
+              nama_latin: doc.data().nama_latin,
+              deskripsi: doc.data().deskripsi,
+              gambar: doc.data().gambar,
+              manfaat: doc.data().manfaat,
+              nutrisi: doc.data().nutrisi,
+            };
+            response.push(selectedItem);
+          }
+          return res.status(200).send({
+            code: 200,
+            status: "OK",
+            data: response,
+          }); // each then should return a value
+        });
+      return response;
+    } catch (error) {
+      return res.json(500).send({ code: 500, status: "Internal Server Error" });
+    }
+  })();
+});
+
+// GET BUAH ARTICLE BY ID
+app.get("/:id", (req, res) => {
+  (async () => {
+    try {
+      const document = db.collection("articles").doc(req.params.id);
+      let product = await document.get();
+      let response = product.data();
 
       return res.status(200).send({
         code: 200,
         status: "OK",
         data: response,
-      });
+      }); // each then should return a value
     } catch (error) {
-      return res.json(500).send({ status: "Failed", msg: error });
+      return res.json(500).send({ code: 500, status: "Internal Server Error" });
     }
   })();
 });
 
 // For Deployment
-exports.v2 = functions.https.onRequest(app);
+exports.articles = functions.https.onRequest(app);
