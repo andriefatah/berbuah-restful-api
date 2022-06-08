@@ -1,18 +1,199 @@
 # API Specification | Articles
 
 REST API For Articles BerBuah App
-
-## Get All Articles
+## Get Articles By ID
 Request :
 - Method : GET
 - Endpoint : `/articles`
 - Header :
-  - Content-Type: application/json
   - Accept : application/json
 - Response :
 
 ```json
 {
-  "id" : "string, unique",
+    "code" : "number",
+    "status" : "string",
+    "data" : [
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+    ]
+}
+```
+
+## Get Articles By Name
+Request :
+- Method : GET
+- Endpoint : `/articles/search?buah={buah_name}`
+- Header :
+  - Accept : application/json
+- Query Param :
+  - buah : string
+- Response :
+
+```json
+{
+    "code" : "number",
+    "status" : "string",
+    "data" : [
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+    ]
+}
+```
+
+## List Articles
+Request :
+- Method : GET
+- Endpoint : `/articles`
+- Header :
+  - Accept : application/json
+- Response :
+
+```json
+{
+    "code" : "number",
+    "status" : "string",
+    "data" : [
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+        {
+             "id" : "string, unique",
+             "nama" : "string",
+             "nama_latin" : "string",
+             "deskripsi" : "string",
+             "gambar" : "string",
+             "manfaat" : {
+                0: "string",
+                1: "string",
+                2: "string",
+                3: "string",
+                4: "string",
+                5: "string",
+             },
+             "nutrisi" : {
+                "air": "number",
+                "lemak": "number",
+                "gula": "number",
+                "protein": "number",
+                "karbohidrat": "number",
+                "kalori": "number",
+                "serat": "number"
+             }
+        },
+    ]
 }
 ```
