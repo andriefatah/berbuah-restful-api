@@ -1,8 +1,18 @@
-# API Specification | Articles
+# REST API BerBuah App - Articles
 
-REST API For Articles BerBuah App
-## Get Articles By ID
+Hello,
+
+Table Of Contents
+
+- [API Specification](#API-Specification)
+- [How to Use](#How-to-Use)
+
+## API Specification
+
+### Get Articles By ID
+
 Request :
+
 - Method : GET
 - Endpoint : `/articles`
 - Header :
@@ -11,63 +21,65 @@ Request :
 
 ```json
 {
-    "code" : "number",
-    "status" : "string",
-    "data" : [
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-    ]
+  "code": "number",
+  "status": "string",
+  "data": [
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    },
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    }
+  ]
 }
 ```
 
-## Get Articles By Name
+### Get Articles By Name
+
 Request :
+
 - Method : GET
 - Endpoint : `/articles/search?buah={buah_name}`
 - Header :
@@ -78,63 +90,65 @@ Request :
 
 ```json
 {
-    "code" : "number",
-    "status" : "string",
-    "data" : [
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-    ]
+  "code": "number",
+  "status": "string",
+  "data": [
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    },
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    }
+  ]
 }
 ```
 
-## List Articles
+### List Articles
+
 Request :
+
 - Method : GET
 - Endpoint : `/articles`
 - Header :
@@ -143,57 +157,59 @@ Request :
 
 ```json
 {
-    "code" : "number",
-    "status" : "string",
-    "data" : [
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-        {
-             "id" : "string, unique",
-             "nama" : "string",
-             "nama_latin" : "string",
-             "deskripsi" : "string",
-             "gambar" : "string",
-             "manfaat" : {
-                0: "string",
-                1: "string",
-                2: "string",
-                3: "string",
-                4: "string",
-                5: "string",
-             },
-             "nutrisi" : {
-                "air": "number",
-                "lemak": "number",
-                "gula": "number",
-                "protein": "number",
-                "karbohidrat": "number",
-                "kalori": "number",
-                "serat": "number"
-             }
-        },
-    ]
+  "code": "number",
+  "status": "string",
+  "data": [
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    },
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "nama_latin": "string",
+      "deskripsi": "string",
+      "gambar": "string",
+      "manfaat": {
+        "0": "string",
+        "1": "string",
+        "2": "string",
+        "3": "string",
+        "4": "string",
+        "5": "string"
+      },
+      "nutrisi": {
+        "air": "number",
+        "lemak": "number",
+        "gula": "number",
+        "protein": "number",
+        "karbohidrat": "number",
+        "kalori": "number",
+        "serat": "number"
+      }
+    }
+  ]
 }
 ```
+
+## How to Use
