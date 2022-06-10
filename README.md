@@ -5,6 +5,10 @@ Hello, this is source code of REST API for BerBuah APP for GET Fruits Articles.
 ## **Table Of Contents**
 
 - [API Specification](#api-specification)
+  - [Get Articles By ID](#get-articles-by-id)
+  - [Search Articles By Name](#search-articles-by-name)
+  - [List Articles](#list-articles)
+  - [Detail Articles By Name](#list-articles-by-name)
 - [How to Use](#how-to-use)
 
 ## API Specification
