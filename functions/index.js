@@ -111,5 +111,44 @@ app.get("/:id", (req, res) => {
   })();
 });
 
+// GET BUAH ARTICLE BY NAMA WITH NAMA PARAMS
+app.get("/buah/:buah", (req, res) => {
+  (async () => {
+    try {
+      const namaBuah = capitalize(req.params.buah);
+      let query = db.collection("articles");
+      let response = [];
+
+      await query
+        .where("nama", "==", namaBuah)
+        .get()
+        .then((querySnapshot) => {
+          let docs = querySnapshot.docs; // the result of the query
+
+          for (let doc of docs) {
+            const selectedItem = {
+              id: doc.id,
+              nama: doc.data().nama,
+              nama_latin: doc.data().nama_latin,
+              deskripsi: doc.data().deskripsi,
+              gambar: doc.data().gambar,
+              manfaat: doc.data().manfaat,
+              nutrisi: doc.data().nutrisi,
+            };
+            response.push(selectedItem);
+          }
+          return res.status(200).send({
+            code: 200,
+            status: "OK",
+            data: response,
+          }); // each then should return a value
+        });
+      return response;
+    } catch (error) {
+      return res.json(500).send({ code: 500, status: "Internal Server Error" });
+    }
+  })();
+});
+
 // For Deployment
 exports.articles = functions.https.onRequest(app);
