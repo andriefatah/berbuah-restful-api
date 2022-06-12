@@ -3,15 +3,12 @@
 Hello, this is source code of REST API for BerBuah APP for GET Fruits Articles.
 
 ## **Table Of Contents**
-
-- [REST API BerBuah App - Articles](#rest-api-berbuah-app---articles)
-  - [**Table Of Contents**](#table-of-contents)
-  - [API Specification](#api-specification)
+- [API Specification](#api-specification)
     - [Get Articles By ID](#get-articles-by-id)
     - [Search Articles By Name](#search-articles-by-name)
     - [List Articles](#list-articles)
     - [List Articles By Name](#list-articles-by-name)
-  - [How to Use](#how-to-use)
+- [How to Use](#how-to-use)
 
 ## API Specification
 
